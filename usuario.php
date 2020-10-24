@@ -18,7 +18,7 @@ Class Usuario
    {
     global $pdo;
      //verificar se já é cadsstrado
-    $sql = $pdo -> prepare ("SELECT id FROM usuarios WHERE email = :e")
+    $sql = $pdo -> prepare ("SELECT id FROM usuarios WHERE email = :e");
     $sql -> bindValue(":e",$email);
     $sql -> execute();
      if ($sql ->eowCount() > 0)
@@ -40,26 +40,25 @@ Class Usuario
       return true;
       
    }   
-    public function logar ($email,$senha)
-   {
-      global $pdo;
-     //verificar se email e senha já são cadsstrados,se sim...
-    $sql = $pdo -> prepare ("SELECT id FROM usuarios WHERE email = :e AND senha =:s")
-    $sql -> bindValue(":e",$email);
-    $sql -> bindValue(":s",md5 ($senha));
-    $sql -> execute();
-    if ($sql -> rowCount() >0)
-    {
-     // entrar no sistema (sessao)
-     $dado = $sql-> fetch();
-     session_start();
-     $_SESSION´['id'] = $dado['id'];
-     return true; //cadastrado com sucesso
-    }
-    else
-    {
-     return false; //não foi possivel logar 
-    }
+// function logar (){
+//       global $pdo;
+//      //verificar se email e senha já são cadsstrados,se sim...
+//     $sql = $pdo -> prepare ("SELECT id FROM usuarios WHERE email = :e AND senha =:s");
+//     $sql -> bindValue(":e",$email);
+//     $sql -> bindValue(":s",md5 ($senha));
+//     $sql -> execute();
+//     if ($sql -> rowCount() >0)
+//     {
+//      // entrar no sistema (sessao)
+//      $dado = $sql-> fetch();
+//      session_start();
+//      $_SESSION´['id'] = $dado['id'];
+//      return true; //cadastrado com sucesso
+//     }
+//     else
+//     {
+//      return false; //não foi possivel logar 
+//     }
   }
 }
 ?>

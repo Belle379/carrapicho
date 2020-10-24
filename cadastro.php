@@ -15,7 +15,7 @@ if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($endereco) && 
  $u -> conectar("carrapicho","localhost","root","");
  if ($u -> msgErro == "") //ok
 { 
-   if ($senha == $confirmarSenha)
+   
 {
  if($u->cadastrar($nome,$telefone,$email,$endereco,$senha,$funcao))
   {
